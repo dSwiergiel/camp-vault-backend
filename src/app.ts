@@ -5,7 +5,7 @@ import cors from "cors";
 
 import * as middlewares from "./middlewares";
 import api from "./api";
-import MessageResponse from "./interfaces/MessageResponse";
+import MessageResponse from "./models/handlers/MessageResponse";
 
 require("dotenv").config();
 
@@ -18,10 +18,12 @@ app.use(express.json());
 
 app.get<{}, MessageResponse>("/", (req, res) => {
   res.json({
-    message: "api entry point",
+    message: "Vercel API Deployment",
   });
 });
 
+// Entry point for vercel:
+// https://<VERCEL_PROJECT_URL>/api/v1/<API_ENDPOINTS>
 app.use("/api/v1", api);
 
 app.use(middlewares.notFound);

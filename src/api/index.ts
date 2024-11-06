@@ -1,6 +1,7 @@
 import express from "express";
-import MessageResponse from "../interfaces/MessageResponse";
+import MessageResponse from "../models/handlers/MessageResponse";
 import emojis from "./routes/emojis";
+import campsites from "./routes/campsites";
 
 const router = express.Router();
 
@@ -11,5 +12,6 @@ const router = express.Router();
 // });
 
 router.use("/emojis", emojis);
+router.use("/campsites", campsites);
 
 export default router;
